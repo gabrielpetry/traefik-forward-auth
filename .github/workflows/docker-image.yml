@@ -15,4 +15,4 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag traefik-forward-auth:2.3.0
       - name: Push
-        run: docker push ghcr.io/gabrielpetry/traefik-forward-auth:latest
+        run: docker push ghcr.io/gabrielpetry/traefik-forward-auth:2.3.0
