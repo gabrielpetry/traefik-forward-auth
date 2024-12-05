@@ -2,19 +2,17 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag traefik-forward-auth :$(date +%s)
-    - name: Push
-      run: docker push ghcr.io/NAMESPACE/IMAGE_NAME:latest
+      - uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag traefik-forward-auth:2.3.0
+      - name: Push
+        run: docker push ghcr.io/NAMESPACE/IMAGE_NAME:latest
